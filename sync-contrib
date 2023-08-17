@@ -1,0 +1,40 @@
+#!/bin/bash
+
+for branch in dunfell kirkstone mickledore; do
+	for i in openembedded-core bitbake; do
+		echo Syncing $i ...
+		if [ $branch != "master" -a $i = "bitbake" ]; then
+			if [ $branch = "dunfell" ]; then
+				branch="1.46"
+			elif [ $branch = "kirkstone" ]; then
+				branch="2.0"
+			elif [ $branch = "mickledore" ]; then
+				branch="2.4"
+			else
+				continue;
+			fi
+		fi
+    
+		cd ~/Repos/$i
+		git fetch contrib
+		
+		git checkout stable/$branch-next
+		git reset --hard $i-contrib/stable/$branch-next
+		
+		git checkout stable/$branch-nut
+		git reset --hard $i-contrib/stable/$branch-nut
+	done
+done
+
+for branch in dunfell kirkstone mickledore; do
+	for i in meta-yocto yocto-docs; do
+		echo Syncing $i ...
+    
+		cd ~/Repos/$i
+		git checkout contrib/$branch-next
+		git fetch origin
+		git reset --hard origin/contrib/$branch-next
+	done
+done
+
+

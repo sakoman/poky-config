@@ -1,0 +1,29 @@
+#!/bin/bash
+branch=${1:-kirkstone}
+
+for i in openembedded-core yocto-docs meta-yocto bitbake; do
+	echo $i
+	if [ $branch != "master" -a $i = "bitbake" ]; then
+		if [ $branch = "dunfell" ]; then
+			branch="1.46"
+		elif [ $branch = "kirkstone" ]; then
+			branch="2.0"
+		elif [ $branch = "langdale" ]; then
+			branch="2.2"
+		elif [ $branch = "mickledore" ]; then
+			branch="2.4"
+		else
+			continue;
+		fi
+	fi
+    
+	cd ~/Repos/$i
+	git checkout $branch
+	git pull
+done
+
+cd ~/Repos/poky
+
+branch=${1:-kirkstone}
+git checkout $branch
+../poky-config/combo-layer -c ../poky-config/combo-layer-$branch.conf -n update

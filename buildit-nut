@@ -1,0 +1,18 @@
+#!/bin/bash
+branch=${1:-kirkstone}
+nextbranch=${branch}-nut
+
+cd ~/Repos/poky
+
+layerfile=combo-layer-stable-${branch}-nut.conf
+
+cp ../poky-config/$layerfile ../poky-config/combo-layer-stable-nut.conf
+
+git branch -D stable/$nextbranch
+git checkout $branch
+git pull
+git checkout -b stable/$nextbranch
+
+# Add -D option for debug
+../poky-config/combo-layer -c ../poky-config/combo-layer-stable-nut.conf -n update
+rm ../poky-config/combo-layer-stable-nut.conf
