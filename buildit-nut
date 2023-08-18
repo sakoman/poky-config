@@ -8,6 +8,7 @@ layerfile=combo-layer-stable-${branch}-nut.conf
 
 cp ../poky-config/$layerfile ../poky-config/combo-layer-stable-nut.conf
 
+git checkout master
 git branch -D stable/$nextbranch
 git checkout $branch
 git pull
