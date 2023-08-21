@@ -1,0 +1,23 @@
+#!/bin/bash
+
+for b in dunfell kirkstone mickledore; do
+	for i in openembedded-core bitbake meta-yocto yocto-docs; do
+		echo Syncing $i ...
+		branch=$b
+		if [ $branch != "master" -a $i = "bitbake" ]; then
+			if [ $branch = "dunfell" ]; then
+				branch="1.46"
+			elif [ $branch = "kirkstone" ]; then
+				branch="2.0"
+			elif [ $branch = "mickledore" ]; then
+				branch="2.4"
+			else
+				continue;
+			fi
+		fi
+    
+		cd ~/Repos/$i
+		git checkout $branch
+		git pull
+	done
+done
