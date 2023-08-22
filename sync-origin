@@ -1,7 +1,7 @@
 #!/bin/bash
 
 for b in dunfell kirkstone mickledore; do
-	for i in openembedded-core bitbake meta-yocto yocto-docs; do
+	for i in openembedded-core bitbake meta-yocto yocto-docs poky; do
 		echo Syncing $i ...
 		branch=$b
 		if [ $branch != "master" -a $i = "bitbake" ]; then
