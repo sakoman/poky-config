@@ -1,0 +1,119 @@
+openembedded-core
+
+Patch review:
+
+scripts/create-pull-request -u contrib -p "OE-core][nanbield" -s "Patch review" -b stable/nanbield-nut -r stable/nanbield-next
+scripts/send-pull-request -p pull-XXXXX -t openembedded-core@lists.openembedded.org
+
+Patch merge:
+
+scripts/create-pull-request -u contrib -p "OE-core][nanbield" -s "Pull request (cover letter only)" -b stable/nanbield-next -r origin/nanbield
+scripts/send-pull-request -p pull-XXXXX -t openembedded-core@lists.openembedded.org
+
+
+bitbake
+
+Patch review:
+
+../openembedded-core/scripts/create-pull-request -u contrib -p "bitbake][nanbield][2.6][PATCH" -s "Patch review" -b stable/2.6-nut -r stable/2.6-next
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t bitbake-devel@lists.openembedded.org
+
+Patch merge:
+
+../openembedded-core/scripts/create-pull-request -u contrib -p "bitbake][nanbield][2.6][PATCH" -s "Pull request (cover letter only)" -b stable/2.6-next -r origin/2.6
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t bitbake-devel@lists.openembedded.org
+
+
+yocto-docs
+
+Patch review:
+
+../openembedded-core/scripts/create-pull-request -u origin -p "yocto-docs][nanbield" -s "Patch review" -b contrib/nanbield-next -r origin/nanbield
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t docs@lists.yoctoproject.org
+
+Patch merge:
+
+../openembedded-core/scripts/create-pull-request -u origin -p "yocto-docs][nanbield" -s "Pull request (cover letter only)" -b contrib/nanbield-next -r origin/nanbield
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t docs@lists.yoctoproject.org
+
+
+meta-yocto
+
+Patch review:
+
+../openembedded-core/scripts/create-pull-request -u origin -p "meta-yocto][nanbield" -s "Patch review" -b contrib/nanbield-next -r origin/nanbield
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t poky@lists.yoctoproject.org
+
+Patch merge
+
+../openembedded-core/scripts/create-pull-request -u origin -p "meta-yocto][nanbield" -s "Pull request (cover letter only)" -b contrib/nanbield-next -r origin/nanbield
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t poky@lists.yoctoproject.org
+
+
+yocto-autobuilder2
+
+Patch review:
+
+../openembedded-core/scripts/create-pull-request -u origin -p "yocto-autobuilder2][nanbield" -s "Patch review" -b contrib/sakoman -r origin/master
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t yocto@lists.yoctoproject.org
+
+
+yocto-autobuilder-helper
+
+Patch review:
+
+../openembedded-core/scripts/create-pull-request -u origin -p "yocto-autobuilder-helper][nanbield" -s "Patch review" -b contrib/nanbield-next -r origin/nanbield
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t yocto@lists.yoctoproject.org
+
+Patch merge
+
+../openembedded-core/scripts/create-pull-request -u origin -p "yocto-autobuilder-helper][nanbield" -s "Pull request (cover letter only)" -b contrib/nanbield-next -r origin/nanbield
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t yocto@lists.yoctoproject.org
+
+
+meta-openembedded
+
+Patch review:
+
+../openembedded-core/scripts/create-pull-request -u contrib -p "oe][meta-oe][nanbield" -s "Patch review" -b sakoman/nanbield -r origin/nanbield
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t openembedded-devel@lists.openembedded.org
+
+Patch merge:
+
+../openembedded-core/scripts/create-pull-request -u contrib -p "oe][meta-oe][nanbield" -s "Pull request (cover letter only)" -b sakoman/nanbield -r origin/nanbield
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t openembedded-devel@lists.openembedded.org
+
+For assembling poky:
+
+cd ../poky-config
+update any needed last-revision in .conf file
+./buildit-nut nanbield
+cd ../poky
+git push -f contrib stable/nanbield-nut
+
+Log into builders:
+
+$ ssh sakoman@debian8-ty-1.yocto.io
+$ sudo -iu pokybuild
+
+Clean sstate
+
+sstate-cache-management.sh --cache-dir=/home/steve/yocto-files/nanbield/sstate -v -d
+
+/usr/bin/find /home/steve/yocto-files/nanbield/sstate-cache \( -mtime +21 -a -atime +41 \) -type f \( -name '*.tgz' -o -name '*tgz.siginfo' \) -delete
+
+Reproducibility
+
+Log will say:
+2021-10-13 18:22:59,267 - oe-selftest - INFO - Non-reproducible packages will be copied to /srv/autobuilder/autobuilder.yoctoproject.org/pub/repro-fail/oe-reproducible-20211013-5yj4xlhv
+
+Translate to: 
+https://autobuilder.yocto.io/pub/repro-fail/oe-reproducible-20211013-5yj4xlhv/
+
+Use web browser to examine files.
+
+Set up tap devices for qemuptest:
+
+sudo `which runqemu-gen-tapdevs ` 1000 sharedsource 8 tmp/sysroots-components/x86_64/qemu-helper-native/usr/bin
+
+
