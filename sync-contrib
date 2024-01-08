@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for branch in dunfell kirkstone mickledore; do
+for branch in dunfell kirkstone mickledore nanbield; do
 	for i in openembedded-core bitbake; do
 		echo Syncing $i ...
 		if [ $branch != "master" -a $i = "bitbake" ]; then
@@ -10,6 +10,8 @@ for branch in dunfell kirkstone mickledore; do
 				branch="2.0"
 			elif [ $branch = "mickledore" ]; then
 				branch="2.4"
+			elif [ $branch = "nanbield" ]; then
+				branch="2.6"
 			else
 				continue;
 			fi
@@ -26,7 +28,7 @@ for branch in dunfell kirkstone mickledore; do
 	done
 done
 
-for branch in dunfell kirkstone mickledore; do
+for branch in dunfell kirkstone mickledore nanbield; do
 	for i in meta-yocto yocto-docs; do
 		echo Syncing $i ...
     
