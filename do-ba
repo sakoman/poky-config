@@ -35,7 +35,7 @@ elif [ $BRANCH = "warrior" ]; then
     RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
 elif [ $BRANCH = "zeus" ]; then
     RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
-elif [ $BRANCH = "dunfell" -o $BRANCH = "gatesgarth" -o $BRANCH = "hardknott" -o $BRANCH = "honister" -o $BRANCH = "kirkstone" -o $BRANCH = "langdale" -o $BRANCH = "mickledore"  -o $BRANCH = "nanbield" ]; then
+elif [ $BRANCH = "dunfell" -o $BRANCH = "gatesgarth" -o $BRANCH = "hardknott" -o $BRANCH = "honister" -o $BRANCH = "kirkstone" -o $BRANCH = "langdale" -o $BRANCH = "mickledore"  -o $BRANCH = "nanbield"  -o $BRANCH = "scarthgap" ]; then
     RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
 elif [ $BRANCH = "master" ]; then
     RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
