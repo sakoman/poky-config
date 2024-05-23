@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for b in dunfell kirkstone mickledore nanbield; do
+for b in dunfell kirkstone mickledore nanbield scarthgap; do
 	for i in openembedded-core bitbake meta-yocto yocto-docs poky; do
 		echo Syncing $i ...
 		branch=$b
@@ -13,6 +13,8 @@ for b in dunfell kirkstone mickledore nanbield; do
 				branch="2.4"
 			elif [ $branch = "nanbield" ]; then
 				branch="2.6"
+			elif [ $branch = "scarthgap" ]; then
+				branch="2.8"
 			else
 				continue;
 			fi
