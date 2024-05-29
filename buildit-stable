@@ -14,6 +14,8 @@ for i in openembedded-core yocto-docs meta-yocto bitbake; do
 			branch="2.4"
 		elif [ $branch = "nanbield" ]; then
 			branch="2.6"
+		elif [ $branch = "scarthgap" ]; then
+			branch="2.8"
 		else
 			continue;
 		fi
