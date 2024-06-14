@@ -62,7 +62,7 @@ yocto-autobuilder-helper
 
 Patch review:
 
-../openembedded-core/scripts/create-pull-request -u origin -p "yocto-autobuilder-helper" -s "Patch review" -b contrib/kirkstone-next -r origin/kirkstone
+../openembedded-core/scripts/create-pull-request -u origin -p "yocto-autobuilder-helper][kirkstone" -s "Patch review" -b contrib/kirkstone-next -r origin/kirkstone
 ../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t yocto@lists.yoctoproject.org
 
 Patch merge

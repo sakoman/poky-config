@@ -62,7 +62,7 @@ yocto-autobuilder-helper
 
 Patch review:
 
-../openembedded-core/scripts/create-pull-request -u origin -p "yocto-autobuilder-helper" -s "Patch review" -b contrib/scarthgap-next -r origin/scarthgap
+../openembedded-core/scripts/create-pull-request -u origin -p "yocto-autobuilder-helper][scarthgap" -s "Patch review" -b contrib/scarthgap-next -r origin/scarthgap
 ../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t yocto@lists.yoctoproject.org
 
 Patch merge
