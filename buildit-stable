@@ -4,18 +4,12 @@ branch=${1:-kirkstone}
 for i in openembedded-core yocto-docs meta-yocto bitbake; do
 	echo $i
 	if [ $branch != "master" -a $i = "bitbake" ]; then
-		if [ $branch = "dunfell" ]; then
-			branch="1.46"
-		elif [ $branch = "kirkstone" ]; then
+		if [ $branch = "kirkstone" ]; then
 			branch="2.0"
-		elif [ $branch = "langdale" ]; then
-			branch="2.2"
-		elif [ $branch = "mickledore" ]; then
-			branch="2.4"
-		elif [ $branch = "nanbield" ]; then
-			branch="2.6"
 		elif [ $branch = "scarthgap" ]; then
 			branch="2.8"
+		elif [ $branch = "styhead" ]; then
+			branch="2.10"
 		else
 			continue;
 		fi

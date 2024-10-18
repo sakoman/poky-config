@@ -1,20 +1,16 @@
 #!/bin/bash
 
-for b in dunfell kirkstone mickledore nanbield scarthgap; do
+for b in kirkstone scarthgap styhead; do
 	for i in openembedded-core bitbake meta-yocto yocto-docs poky; do
 		echo Syncing $i ...
 		branch=$b
 		if [ $branch != "master" -a $i = "bitbake" ]; then
-			if [ $branch = "dunfell" ]; then
-				branch="1.46"
-			elif [ $branch = "kirkstone" ]; then
+			if [ $branch = "kirkstone" ]; then
 				branch="2.0"
-			elif [ $branch = "mickledore" ]; then
-				branch="2.4"
-			elif [ $branch = "nanbield" ]; then
-				branch="2.6"
 			elif [ $branch = "scarthgap" ]; then
 				branch="2.8"
+			elif [ $branch = "styhead" ]; then
+				branch="2.10"
 			else
 				continue;
 			fi

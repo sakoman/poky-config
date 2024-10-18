@@ -5,41 +5,7 @@ if [ -z $BRANCH ]; then
     BRANCH=master
 fi
 
-if [ $BRANCH = "daisy" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_8.0.bb"
-elif [ $BRANCH = "dizzy" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_8.0.bb"
-elif [ $BRANCH = "dora" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_8.0.bb"
-elif [ $BRANCH = "dylan" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image.bb"
-elif [ $BRANCH = "fido" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_12.0.1.bb"
-elif [ $BRANCH = "jethro" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_12.0.1.bb"
-elif [ $BRANCH = "krogoth" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_14.0.0.bb"
-elif [ $BRANCH = "morty" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
-elif [ $BRANCH = "pyro" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
-elif [ $BRANCH = "rocko" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
-elif [ $BRANCH = "sumo" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
-elif [ $BRANCH = "sumo" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
-elif [ $BRANCH = "thud" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
-elif [ $BRANCH = "warrior" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
-elif [ $BRANCH = "zeus" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
-elif [ $BRANCH = "dunfell" -o $BRANCH = "gatesgarth" -o $BRANCH = "hardknott" -o $BRANCH = "honister" -o $BRANCH = "kirkstone" -o $BRANCH = "langdale" -o $BRANCH = "mickledore"  -o $BRANCH = "nanbield"  -o $BRANCH = "scarthgap" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
-elif [ $BRANCH = "master" ]; then
-    RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
-fi
+RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
 
 HEAD=`cd ../poky; git log $BRANCH --pretty=%H -n 1`
 echo "$BRANCH HEAD is $HEAD"
