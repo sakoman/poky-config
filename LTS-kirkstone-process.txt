@@ -28,7 +28,7 @@ yocto-docs
 
 Patch review:
 
-../openembedded-core/scripts/create-pull-request -u origin -p "yocto-docs][kirkstone" -s "Patch review" -b contrib/kirkstone-next -r origin/kirkstone
+../openembedded-core/scripts/create-pull-request -u origin -p "yocto-docs][kirkstone" -s "Patch review" -b contrib/sakoman/kirkstone-next -r origin/kirkstone
 ../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t docs@lists.yoctoproject.org
 
 Patch merge:

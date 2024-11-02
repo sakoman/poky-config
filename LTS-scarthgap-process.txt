@@ -28,7 +28,7 @@ yocto-docs
 
 Patch review:
 
-../openembedded-core/scripts/create-pull-request -u origin -p "yocto-docs][scarthgap" -s "Patch review" -b contrib/scarthgap-next -r origin/scarthgap
+../openembedded-core/scripts/create-pull-request -u origin -p "yocto-docs][scarthgap" -s "Patch review" -b contrib/sakoman/scarthgap-next -r origin/scarthgap
 ../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t docs@lists.yoctoproject.org
 
 Patch merge:
