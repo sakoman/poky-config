@@ -55,7 +55,7 @@ yocto-autobuilder2
 Patch review:
 
 ../openembedded-core/scripts/create-pull-request -u origin -p "yocto-autobuilder2" -s "Patch review" -b contrib/sakoman -r origin/master
-../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t yocto@lists.yoctoproject.org
+../openembedded-core/scripts/send-pull-request -p pull-XXXXX -t yocto-patches@lists.yoctoproject.org
 
 
 yocto-autobuilder-helper
