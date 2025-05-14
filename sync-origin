@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for b in kirkstone scarthgap styhead; do
+for b in kirkstone scarthgap walnascar; do
 	for i in openembedded-core bitbake meta-yocto yocto-docs poky; do
 		echo Syncing $i ...
 		branch=$b
@@ -9,8 +9,8 @@ for b in kirkstone scarthgap styhead; do
 				branch="2.0"
 			elif [ $branch = "scarthgap" ]; then
 				branch="2.8"
-			elif [ $branch = "styhead" ]; then
-				branch="2.10"
+			elif [ $branch = "walnascar" ]; then
+				branch="2.12"
 			else
 				continue;
 			fi
